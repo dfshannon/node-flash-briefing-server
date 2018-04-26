@@ -9,7 +9,7 @@ import * as Event from '../model/event';
 import APIError from '../util/APIError';
 
 /**
- * Handles requests to get all events.
+ * Handles requests to get a single events.
  * @param req - request object
  * @param res - response object
  * @param next - next handler*

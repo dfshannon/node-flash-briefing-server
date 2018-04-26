@@ -9,8 +9,8 @@ import config from './util/config';
 
 const {expect} = chai;
 const sandbox = sinon.sandbox.create();
-
-const eventListResp = [{id: 1, updateDate: '2018-04-12T04:00:00.000Z'}, {id: 2, updateDate: '2018-04-01T04:00:00.000Z'}];
+const today = new Date();
+const eventListResp = [{id: 1, updateDate: today.toISOString()}, {id: 2, updateDate: '2018-04-01T04:00:00.000Z'}];
 
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable func-names */
@@ -31,7 +31,7 @@ describe('server-integration tests', function () {
 
     describe('# GET /flashbriefing', function () {
         beforeEach(function () {
-            sandbox.stub(Event, 'getEvents').returns(eventListResp);
+            sandbox.stub(Event, 'getEventsForDate').returns(eventListResp.filter(event => event.updateDate === today.toISOString()));
         });
         afterEach(function () {
             sandbox.restore();
@@ -39,13 +39,12 @@ describe('server-integration tests', function () {
 
         it('should return OK', function (done) {
             request(app)
-                .get('/event')
+                .get('/flashbriefing')
                 .expect(HttpStatus.OK)
                 .then(function (res) {
                     expect(res.headers['content-type']).to.equal('application/json; charset=utf-8');
-                    expect(res.body.length).to.equal(2);
+                    expect(res.body.length).to.equal(1);
                     expect(res.body[0].id).to.equal(1);
-                    expect(res.body[1].id).to.equal(2);
                     done();
                 })
                 .catch(done);

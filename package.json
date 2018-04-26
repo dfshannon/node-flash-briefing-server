@@ -1,0 +1,68 @@
+{
+  "name": "node-flash-briefing-server",
+  "version": "1.0.0",
+  "description": "Node server for Alexa flash briefing",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint server",
+    "lint-fix": "eslint --fix server",
+    "startServer": "rm -rf ./dist && NODE_ENV=development webpack --mode development --config ./config/server.config.dev.js",
+    "buildProdServer": "rm -rf ./dist && NODE_ENV=production webpack --mode production --config ./config/server.config.prod.js",
+    "startProdServer": "node -r dotenv/config ./dist/server.js",
+    "test": "cross-env NODE_ENV=test mocha --reporter spec --require babel-core/register './server/**/*.spec.js'",
+    "unitTests": "npm run tests -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfshannon/node-flash-briefing-server.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "alexa",
+    "rest",
+    "webpack",
+    "ES6"
+  ],
+  "author": "David Shannon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dfshannon/node-flash-briefing-server/issues"
+  },
+  "homepage": "https://github.com/dfshannon/node-flash-briefing-server#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "dotenv-webpack": "^1.5.5",
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-watch": "^3.1.3",
+    "mocha": "^5.1.0",
+    "sinon": "^4.5.0",
+    "start-server-webpack-plugin": "^2.2.1",
+    "supertest": "^3.0.0",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "bunyan": "^1.8.12",
+    "dateformat": "^3.0.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "express-basic-auth": "^1.1.4",
+    "express-validation": "^1.0.2",
+    "helmet": "^3.12.0",
+    "http-status": "^1.0.1",
+    "joi": "^13.2.0",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7",
+    "uuid": "^3.2.1"
+  }
+}

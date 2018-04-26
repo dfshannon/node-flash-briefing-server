@@ -1,0 +1,19 @@
+# node modules
+node_modules
+
+#dist folder
+dist
+
+#dotenv
+.env
+
+# Mac files
+.DS_Store
+
+# Books
+docs/_book
+docs/_node_modules
+
+# IntelliJ IDEA
+.idea/
+*.iml

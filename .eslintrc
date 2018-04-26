@@ -1,0 +1,36 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "react/jsx-closing-bracket-location": [
+      0,
+      "tag-aligned"
+    ],
+    "comma-dangle": [1, "never"],
+    "max-len": [1, 180, 4],
+    "arrow-body-style": [0],
+    "react/jsx-no-bind": [0],
+    "react/jsx-indent-props": [0],
+    "no-debugger": [2],
+    "no-console": [2],
+    "no-unused-vars": [1],
+    "prefer-const": [0],
+    "object-curly-spacing": [0],
+    "indent": [0],
+    "complexity": [
+      2,
+      9
+    ],
+    "skipBlankLines": [
+      0
+    ],
+    "padded-blocks": [
+      1
+    ],
+    "no-plusplus": "off"
+  }
+}

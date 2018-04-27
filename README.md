@@ -18,7 +18,6 @@ This server supports the following:
 - eslint script
 
 ## Prerequisites
- - Download and install git from here: https://git-scm.com/download/
  - Install Node.js version 8.9 or greater from: https://nodejs.org/en/
  - Clone the repository from: https://github.com/dfshannon/node-flash-briefing-server.git
  - Run the following to install packages:

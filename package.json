@@ -9,8 +9,7 @@
     "startServer": "rm -rf ./dist && NODE_ENV=development webpack --mode development --config ./config/server.config.dev.js",
     "buildProdServer": "rm -rf ./dist && NODE_ENV=production webpack --mode production --config ./config/server.config.prod.js",
     "startProdServer": "node -r dotenv/config ./dist/server.js",
-    "test": "cross-env NODE_ENV=test mocha --reporter spec --require babel-core/register './server/**/*.spec.js'",
-    "unitTests": "npm run tests -- --watch"
+    "test": "cross-env NODE_ENV=test mocha --reporter spec --require babel-core/register './server/**/*.spec.js'"
   },
   "repository": {
     "type": "git",

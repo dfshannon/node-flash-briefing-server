@@ -1,7 +1,7 @@
 {
   "name": "node-flash-briefing-server",
   "version": "1.0.0",
-  "description": "Node server for Alexa flash briefing",
+  "description": "Alex flash briefing Node.js server",
   "main": "index.js",
   "scripts": {
     "lint": "eslint server",

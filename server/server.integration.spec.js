@@ -8,7 +8,7 @@ import app from './server';
 import config from './util/config';
 
 const {expect} = chai;
-const sandbox = sinon.sandbox.create();
+const sandbox = sinon.createSandbox();
 const today = new Date();
 const eventListResp = [{id: 1, updateDate: today.toISOString()}, {id: 2, updateDate: '2018-04-01T04:00:00.000Z'}];
 
@@ -31,7 +31,7 @@ describe('server-integration tests', function () {
 
     describe('# GET /flashbriefing', function () {
         beforeEach(function () {
-            sandbox.stub(Event, 'getEventsForDate').returns(eventListResp.filter(event => event.updateDate === today.toISOString()));
+            sandbox.stub(Event, 'getEventsForDate').returns(eventListResp.filter((event) => event.updateDate === today.toISOString()));
         });
         afterEach(function () {
             sandbox.restore();

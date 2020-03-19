@@ -10,6 +10,7 @@ import {getEventsForDate} from '../model/event';
  * Handles requests to get the flash briefing json requests.  Returns a 200 if succssful.
  * @param req - request object
  * @param res - response object
+ * @param next - next routine
  */
 async function getBriefing(req, res, next) {
     res.set('Content-Type', 'application/json');
@@ -22,4 +23,3 @@ async function getBriefing(req, res, next) {
     }
 }
 export default getBriefing;
-

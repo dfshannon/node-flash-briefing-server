@@ -30,7 +30,7 @@ export async function addEvent(uid, updateDate, titleText, mainText, redirection
 }
 
 export async function updateEvent(id, existing, updateDate, titleText, mainText, redirectionUrl) {
-    let data = Object.assign({}, existing);
+    let data = { ...existing};
     if (updateDate) {
         data.updateDate = updateDate;
     }
@@ -51,4 +51,3 @@ export async function deleteEvent(id) {
     const result = await connection.query('delete from event where id = ?', [id]);
     return result.affectedRows === 1;
 }
-

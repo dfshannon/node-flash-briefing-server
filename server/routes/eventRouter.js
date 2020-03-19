@@ -4,7 +4,7 @@
  * @module eventRouter
  */
 import express from 'express';
-import validate from 'express-validation';
+import * as ExpressValidation from 'express-validation';
 import basicAuth from 'express-basic-auth';
 import * as EventController from '../controllers/eventController';
 import * as ParamValidation from '../util/param-validation';
@@ -21,18 +21,17 @@ router.route('/')
     .post(basicAuth({
         users,
         challenge: true
-    }), validate(ParamValidation.addEvent), EventController.addEvent);
+    }), ExpressValidation.validate(ParamValidation.addEvent), EventController.addEvent);
 
 router.route('/:id')
     .get(EventController.getEvent)
     .put(basicAuth({
         users,
         challenge: true
-    }), validate(ParamValidation.updateEvent), EventController.updateEvent)
+    }), ExpressValidation.validate(ParamValidation.updateEvent), EventController.updateEvent)
     .delete(basicAuth({
         users,
         challenge: true
     }), EventController.deleteEvent);
 
 export default router;
-

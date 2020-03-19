@@ -2,8 +2,8 @@ const bunyan = require('bunyan');
 
 const reqSerializer = (req) => {
     return {
-        query: (typeof req.query === 'function') ?
-            req.query() : req.query,
+        query: (typeof req.query === 'function')
+            ? req.query() : req.query,
         method: req.method,
         url: req.url
     };

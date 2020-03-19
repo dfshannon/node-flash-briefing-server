@@ -1,10 +1,9 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const StartServerPlugin = require('start-server-webpack-plugin');
 
-var projectRootPath = path.resolve(__dirname, '../');
-var outputDir = path.resolve(projectRootPath, './dist');
+const projectRootPath = path.resolve(__dirname, '../');
+const outputDir = path.resolve(projectRootPath, './dist');
 
 module.exports = {
     devtool: 'sourcemap',
@@ -12,7 +11,7 @@ module.exports = {
     target: 'node',
     node: {
         __dirname: false,
-        __filename: false,
+        __filename: false
     },
     externals: [nodeExternals()],
     entry: [
@@ -30,11 +29,11 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: [
-                        ["env", {
-                            "targets": {
-                                "node": "current"
+                        ['@babel/env', {
+                            targets: {
+                                node: 'current'
                             },
-                            "modules": false
+                            modules: false
                         }]
                     ]
                 }
@@ -43,7 +42,7 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         })
     ]
 };
